@@ -1,0 +1,24 @@
+{
+  "title": "Authentica | Your reliable authentication app built with next js",
+  "titleTemplate": "%s - miastudios inc",
+  "description": "Stay tuned in your comfort and enjoy your friends and profile simply by logginh in with your favorite provider",
+  "openGraph": {
+    "title": "Authentica | Your reliable authentication app built with next js",
+    "description": "Stay tuned in your comfort and enjoy your friends and profile simply by logginh in with your favorite provider",
+    "type": "website",
+    "locale": "en_IE",
+    "url": "https://nextjs.org/commerce",
+    "site_name": "clima",
+    "images": [{
+      "url": "/card.png",
+      "width": 800,
+      "height": 600,
+      "alt": "Authentica"
+    }]
+  },
+  "twitter": {
+    "handle": "@musahibrahimali",
+    "site": "https://www.github.com/musahibrahimali",
+    "cardType": "summary_large_image"
+  }
+}
