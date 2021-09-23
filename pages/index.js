@@ -13,7 +13,7 @@ export default function Home() {
         )
       }
 
-      {/* show profile page after sign in */}
+      {/* show profile page after sign */}
       {
         session && (
           <>

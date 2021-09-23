@@ -123,13 +123,13 @@ const SignInForm = (props) => {
                             />
                             {/* remember me check box */}
                             {
-                                signUp &&
-                                <CheckBox
-                                    name="rememberMe"
-                                    label="Remember Me"
-                                    value={values.rememberMe}
-                                    onChange={handleInputChange}
-                                />
+                                !signUp ?
+                                    <CheckBox
+                                        name="rememberMe"
+                                        label="Remember Me"
+                                        value={values.rememberMe}
+                                        onChange={handleInputChange}
+                                    /> : <div className="mt-4"></div>
                             }
 
                             <div className="mb-4">
@@ -189,7 +189,7 @@ const SignInForm = (props) => {
                                     </Link>
                                 </Grid>
                                 <Grid item>
-                                    <div className="" onClick={() => setSignUp(!signUp)}>
+                                    <div className="cursor-pointer" onClick={() => setSignUp(!signUp)}>
                                         <p>
                                             {signUp ? "Already have an account ?" : "Don't have an account ?"}
                                             {" "}
