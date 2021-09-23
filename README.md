@@ -62,6 +62,15 @@ intringing and chalenging but surely worth it
 - [Next Auth](https://next-auth.js.org/)
 - [Unsplash](https://unsplash.com/)
 
+# others (api)
+
+- [SendGrid](https://sendgrid.com/)
+- [Auth0](https://auth0.com/)
+- [Google](https://console.cloud.google.com/apis)
+- [Facebook](https://developers.facebook.com/)
+- [Twitter](https://developer.twitter.com/en/apply-for-access)
+- [GitHub](https://github.com/settings/developers)
+
 ## Features
 
 <!-- List the features of your application or follow the template. Don't share the figma file here :) -->
@@ -84,18 +93,14 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 $ git clone https://github.com/musahibrahimali/authentica
 
 # Install dependencies
-$ npm install
-
-# Run the app
-$ npm start
+$ yarn install
 
 # rename the .env.local file and fill in with the correct api credentials 
-- [SendGrid](https://sendgrid.com/)
-- [Auth0](https://auth0.com/)
-- [Google](https://console.cloud.google.com/apis)
-- [Facebook](https://developers.facebook.com/)
-- [Twitter](https://developer.twitter.com/en/apply-for-access)
-- [GitHub](https://github.com/settings/developers)
+# check the links above to for the various pages where an api can be generated from
+
+# Run the app
+$ yarn dev
+
 ```
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
