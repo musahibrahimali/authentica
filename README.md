@@ -80,6 +80,7 @@ What features did you develop?
 - onboarding screen with subtle animation
 - sign in and sign up screen
 - profile page
+- light and dark theme (ability to switch)
 
 ## How To Use
 

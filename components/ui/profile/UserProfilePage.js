@@ -223,7 +223,7 @@ const UserProfilePage = () => {
                         </div>
                         {/* developer */}
                         <div className="flex w-4/5 justify-between mt-8 mb-12 text-gray-600 cursor-default">
-                            <p className="text-gray-700 dark:text-gray-400">
+                            <p className="text-gray-700 text-center dark:text-gray-400">
                                 <span className="">created by </span>
                                 <span className="font-bold">
                                     <Link href="https://www.github.com/musahibrahimali">
@@ -232,7 +232,7 @@ const UserProfilePage = () => {
                                 </span>
                             </p>
                             <div className="flex">
-                                <p className="text-gray-700 dark:text-gray-400">
+                                <p className="text-gray-700 text-center dark:text-gray-400">
                                     devChallenges.io
                                 </p>
                                 <div className="flex ml-2">
