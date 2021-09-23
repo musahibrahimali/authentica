@@ -1,6 +1,6 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">{Your project name}</h1>
+<h1 align="center">{Authentica}</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="https://investondaba.notion.site/Fullstack-Intermediate-Test-bffec121436f45ebac844fda2aa747ca" target="_blank">daba full stack intermediate coding exercise</a>.
@@ -8,11 +8,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://authentica-ten.vercel.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://github.com/musahibrahimali/authentica">
       Solution
     </a>
     <span> | </span>
@@ -40,8 +40,6 @@
 ![screenshot](preview-1.png)
 ![screenshot](preview-2.png)
 ![screenshot](preview-3.png)
-
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
 
 Introduce your projects by taking a screenshot, video recordings or a gif. Try to tell us about the solution you built by answering the following:
 
