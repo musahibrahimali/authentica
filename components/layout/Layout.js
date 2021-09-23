@@ -8,7 +8,7 @@ const Layout = (props) => {
     /* props */
     const { children } = props;
     /* data layer */
-    const [{ theme, isDrawerOpen }, dispatch] = useStateValue();
+    const [{ theme }] = useStateValue();
     // Create a theme instance.
     const appTheme = createTheme({
         palette: {
@@ -25,52 +25,13 @@ const Layout = (props) => {
         },
     });
 
-    /* switch between dark and light mode */
-    const handleTheme = () => {
-        if (theme) {
-            dispatch({
-                type: actionTypes.SET_THEME,
-                theme: false,
-            });
-        } else {
-            dispatch({
-                type: actionTypes.SET_THEME,
-                theme: true,
-            });
-        }
-    }
-
-    // open drawer
-    const handleOpenDrawer = () => {
-        if (isDrawerOpen) {
-            dispatch({
-                type: actionTypes.OPEN_DRAWER,
-                isDrawerOpen: false,
-            });
-        } else {
-            dispatch({
-                type: actionTypes.OPEN_DRAWER,
-                isDrawerOpen: true,
-            });
-        }
-    }
-
     return (
         <ThemeProvider theme={appTheme}>
             <div className={theme ? "dark" : ""}>
-                <div className="bg-white dark:bg-dark-900">
-                    {/*side bar*/}
-                    <div>
-                        {/* <Drawer handleOpenDrawer={handleOpenDrawer} /> */}
-                    </div>
-                    <div>
+                <div className="bg-white dark:bg-col-dark-900">
+                    <div className="max-w-screen-xl mx-auto">
                         {children}
                     </div>
-                </div>
-
-                {/* main global footer */}
-                <div className="">
-
                 </div>
             </div>
         </ThemeProvider>

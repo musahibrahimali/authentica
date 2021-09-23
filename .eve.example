@@ -1,0 +1,28 @@
+rename this file to .env and fill out the details on this page and you are ready to get underway
+
+
+GITHUB_ID=<fill this>
+GITHUB_SECRET=<fill this>
+
+GOOGLE_ID=<cilent id of your google auth app should go in here>
+GOOGLE_SECRET=<cilent secret of your google auth app should go in here>
+
+FACEBOOK_ID=<fill this>
+FACEBOOK_SECRET=<fill this>
+
+TWITTER_ID=<fill this>
+TWITTER_SECRET=<fill this>
+
+AUTH0_CLIENT_ID=<fill this>
+AUTH0_CLIENT_SECRET=<fill this>
+AUTH0_DOMAIN=<fill this>
+
+EMAIL_SERVER_USER=<fill this>
+EMAIL_SERVER_PASSWORD=<fill this>
+EMAIL_SERVER_HOST=<fill this>
+EMAIL_SERVER_PORT=<fill this>
+EMAIL_FROM=<fill this>
+
+NEXTAUTH_URL=http://localhost:3000
+
+DATABASE_URL=sqlite://localhost/:memory:

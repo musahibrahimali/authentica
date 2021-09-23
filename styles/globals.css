@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities{
+    .animation-delay-2s{
+        animation-delay: 2s;
+    }
+    .animation-delay-4s{
+        animation-delay: 4s;
+    }
+    .animation-delay-6s{
+        animation-delay: 6s;
+    }
+}
+
+.tooltip {
+    @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+    @apply visible z-50;
+}
+
 /* custom scroll bar on chrome and latest version of firefox and supported browsers */
 ::-webkit-scrollbar {
     width: 5px;

@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { SignInFormStyles } from "./SignInFormStyles";
-import { CheckBox, CopyRight, Form, FormButton, InputField, UseForm } from "../../../components";
-import { Typography, Avatar, Box, Container, Grid, IconButton, InputAdornment, Paper } from '@mui/material';
-import { facebook_image, github_image, google_image, twitter_image } from '../../../../assets/assets';
 import { SocialIcon } from '../auth';
-import { useSession, signIn, signOut } from 'next-auth/client'
+import { signIn } from 'next-auth/client';
+import { Typography, Avatar, Box, Container, Grid, IconButton, InputAdornment, Paper } from '@mui/material';
+import { CheckBox, CopyRight, Form, FormButton, InputField, UseForm } from "../../../components";
+import { facebook_image, github_image, google_image, twitter_image } from '../../../../assets/assets';
+import { SignInFormStyles } from "./SignInFormStyles";
 
 const initialValues = {
     id: 0,
-    emailAddress: '',
+    email: '',
     password: '',
     rememberMe: false,
 };
 
-const SignInForm = () => {
-
+const SignInForm = (props) => {
+    const { providers, csrfToken } = props;
     const styles = SignInFormStyles();
-    const [session] = useSession();
 
     const [passwordVisible, setPasswordVisible] = useState(false);
+    const [signUp, setSignUp] = useState(false);
 
     /* validate form */
     const handlePasswordVisible = (event) => {
@@ -33,8 +33,8 @@ const SignInForm = () => {
             temp.password = fieldValues.password ? "" : "Invalid Password";
         }
 
-        if ('emailAddress' in fieldValues) {
-            temp.emailAddress = fieldValues.emailAddress ? "" : "This Field is Required";
+        if ('email' in fieldValues) {
+            temp.email = fieldValues.email ? "" : "This Field is Required";
         }
 
         setErrors({
@@ -43,18 +43,6 @@ const SignInForm = () => {
 
         if (fieldValues === values) {
             return Object.values(temp).every(x => x === "");
-        }
-    }
-
-    const handleLogIn = (event) => {
-        event.preventDefault();
-    }
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (validateForm()) {
-            handleResetForm();
-            handleLogIn();
         }
     }
 
@@ -67,28 +55,13 @@ const SignInForm = () => {
     } = UseForm(initialValues, true, validateForm);
 
     /* handle google auth */
-    const onGoogleClick = () => {
-
-    }
-
-    /* handle facebook auth */
-    const onFacebookClick = () => {
-
-    }
-
-    /* handle twitter auth */
-    const onTwitterClick = () => {
-
-    }
-
-    /* handle github auth */
-    const onGitHubClick = () => {
-
+    const handleLogIn = (providerId) => {
+        signIn(providerId);
     }
 
     return (
         <>
-            <Paper classes={styles.root} component="main" className={styles.image}>
+            <Paper classes={{ root: styles.root }} component="main" className={styles.image}>
                 <Container component="main" maxWidth="xs"
                     className="bg-white dark:bg-dark-900 shadow-md border border-gray-400 border-opacity-0 dark:border-opacity-70 p-4 flex flex-col justify-center items-center">
                     <div className={styles.paper}>
@@ -98,18 +71,21 @@ const SignInForm = () => {
                                 SIGN IN
                             </Typography>
                         </div>
-                        <Form onSubmit={handleSubmit}>
+                        <Form method="post" action="/api/auth/signin/email">
+                            <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
                             <InputField
                                 required
                                 label="Email Address"
-                                name="emailAddress"
+                                name="email"
                                 type="email"
-                                value={values.emailAddress}
+                                value={values.email}
                                 onChange={handleInputChange}
-                                error={errors.emailAddress}
-                                inputIcon={<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-                                </svg>}
+                                error={errors.email}
+                                inputIcon={
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                                    </svg>
+                                }
                             />
 
                             {/* password field */}
@@ -121,9 +97,11 @@ const SignInForm = () => {
                                 value={values.password}
                                 onChange={handleInputChange}
                                 error={errors.password}
-                                inputIcon={<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>}
+                                inputIcon={
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                    </svg>
+                                }
                                 endAdornment={
                                     <InputAdornment position="end">
                                         <IconButton
@@ -144,12 +122,15 @@ const SignInForm = () => {
                                 }
                             />
                             {/* remember me check box */}
-                            <CheckBox
-                                name="rememberMe"
-                                label="Remember Me"
-                                value={values.rememberMe}
-                                onChange={handleInputChange}
-                            />
+                            {
+                                signUp &&
+                                <CheckBox
+                                    name="rememberMe"
+                                    label="Remember Me"
+                                    value={values.rememberMe}
+                                    onChange={handleInputChange}
+                                />
+                            }
 
                             <div className="mb-4">
                                 <FormButton
@@ -160,26 +141,43 @@ const SignInForm = () => {
                             </div>
 
                             <div className="flex justify-center items-center my-2 mb-4">
-                                {/* google */}
-                                <SocialIcon
-                                    image={google_image}
-                                    onTap={onGoogleClick}
-                                />
-                                {/* facebook */}
-                                <SocialIcon
-                                    image={facebook_image}
-                                    onTap={onFacebookClick}
-                                />
-                                {/* twitter */}
-                                <SocialIcon
-                                    image={twitter_image}
-                                    onTap={onTwitterClick}
-                                />
-                                {/* github */}
-                                <SocialIcon
-                                    image={github_image}
-                                    onTap={onGitHubClick}
-                                />
+                                {Object.values(providers).map((provider) => {
+                                    if (provider.name === "Email") {
+                                        return;
+                                    }
+                                    else if (provider.name === "Google") {
+                                        return (
+                                            <SocialIcon
+                                                image={google_image}
+                                                onTap={() => handleLogIn(provider.id)}
+                                            />
+                                        );
+                                    }
+                                    else if (provider.name === "Facebook") {
+                                        return (
+                                            <SocialIcon
+                                                image={facebook_image}
+                                                onTap={() => handleLogIn(provider.id)}
+                                            />
+                                        );
+                                    }
+                                    else if (provider.name === "Twitter") {
+                                        return (
+                                            <SocialIcon
+                                                image={twitter_image}
+                                                onTap={() => handleLogIn(provider.id)}
+                                            />
+                                        );
+                                    }
+                                    else if (provider.name === "GitHub") {
+                                        return (
+                                            <SocialIcon
+                                                image={github_image}
+                                                onTap={() => handleLogIn(provider.id)}
+                                            />
+                                        );
+                                    }
+                                })}
                             </div>
 
                             <Grid container>
@@ -191,15 +189,16 @@ const SignInForm = () => {
                                     </Link>
                                 </Grid>
                                 <Grid item>
-                                    <Link href="/auth/signup" variant="body2">
-                                        <a>Don&apos;t have an account ?
+                                    <div className="" onClick={() => setSignUp(!signUp)}>
+                                        <p>
+                                            {signUp ? "Already have an account ?" : "Don't have an account ?"}
                                             {" "}
                                             <span
                                                 className="text-brand hover:underline hover:text-brand-blue dark:text-brand dark:hover:text-brand-blue">
-                                                Sign Up
+                                                {signUp ? "Sign In" : "Sign Up"}
                                             </span>
-                                        </a>
-                                    </Link>
+                                        </p>
+                                    </div>
                                 </Grid>
                             </Grid>
                             <Box mt={4}>

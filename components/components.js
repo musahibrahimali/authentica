@@ -1,6 +1,6 @@
 export { default as Layout } from './layout/Layout';
 export { default as HeadTag } from './HeadTag/HeadTag';
-export { SignInForm, SignUpForm, UserProfilePage } from './ui/ui';
+export { SignInForm, UserProfilePage, Loader, OnBoarding } from './ui/ui';
 export {
     CheckBox,
     CopyRight,
