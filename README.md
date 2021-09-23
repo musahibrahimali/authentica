@@ -40,6 +40,7 @@
 ![screenshot](preview-1.png)
 ![screenshot](preview-2.png)
 ![screenshot](preview-3.png)
+![screenshot](preview-4.png)
 
 Introduce your projects by taking a screenshot, video recordings or a gif. Try to tell us about the solution you built by answering the following:
 
