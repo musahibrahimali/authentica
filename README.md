@@ -46,24 +46,32 @@
 Introduce your projects by taking a screenshot, video recordings or a gif. Try to tell us about the solution you built by answering the following:
 
 - Where can I see your demo?
+- demo <https://authentica-ten.vercel.app/>
+
 - What was your experience building it.
+intringing and chalenging but surely worth it
 
 ### Built With
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
 - [React](https://reactjs.org/)
-- [Vue.js](https://vuejs.org/)
 - [Tailwind](https://tailwindcss.com/)
-- [next.js](https://nextjs.org/)
-- [material ui](https://mui.com/)
-- [open weather](https://openweathermap.org/)
+- [Next.js](https://nextjs.org/)
+- [Material UI](https://mui.com/)
+- [Next Auth](https://next-auth.js.org/)
+- [Unsplash](https://unsplash.com/)
 
 ## Features
 
 <!-- List the features of your application or follow the template. Don't share the figma file here :) -->
 
 What features did you develop?
+
+- shimmer effect in case the page takes longer to load
+- onboarding screen with subtle animation
+- sign in and sign up screen
+- profile page
 
 ## How To Use
 
@@ -73,13 +81,21 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/your-user-name/your-project-name
+$ git clone https://github.com/musahibrahimali/authentica
 
 # Install dependencies
 $ npm install
 
 # Run the app
 $ npm start
+
+# rename the .env.local file and fill in with the correct api credentials 
+- [SendGrid](https://sendgrid.com/)
+- [Auth0](https://auth0.com/)
+- [Google](https://console.cloud.google.com/apis)
+- [Facebook](https://developers.facebook.com/)
+- [Twitter](https://developer.twitter.com/en/apply-for-access)
+- [GitHub](https://github.com/settings/developers)
 ```
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
